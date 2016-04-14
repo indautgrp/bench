@@ -83,9 +83,10 @@ class TestSetupProduction(test_init.TestBenchInit):
 		out = bench.utils.get_cmd_output("sudo supervisorctl status")
 
 		if "STARTING" in out:
-			time.sleep(10)
+			time.sleep(30)
 			out = bench.utils.get_cmd_output("sudo supervisorctl status")
 
+		print out
 		for key in (
 				"{bench_name}-processes:{bench_name}-frappe-web[\s]+RUNNING",
 				"{bench_name}-processes:{bench_name}-frappe-worker[\s]+RUNNING",
